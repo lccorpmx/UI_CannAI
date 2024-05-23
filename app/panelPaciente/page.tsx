@@ -741,7 +741,7 @@ export default function PanelPaciente({ params }: { params: { id: string } }) {
 
                                 <div className='flex gap-1 items-center'>
                                     <input type='checkbox' onChange={handleCrohnSDiseaseChange} />
-                                    <label htmlFor='checkbox'>Crohn's Disease</label>
+                                    <label htmlFor='checkbox'>Crohns Disease</label>
                                 </div>
 
                                 <div className='flex gap-1 items-center'>
@@ -761,17 +761,17 @@ export default function PanelPaciente({ params }: { params: { id: string } }) {
 
                                 <div className='flex gap-1 items-center'>
                                     <input type='checkbox' onChange={handleParkinsonSChange} />
-                                    <label htmlFor='checkbox'>Parkinson's</label>
+                                    <label htmlFor='checkbox'>Parkinsons</label>
                                 </div>
 
                                 <div className='flex gap-1 items-center'>
                                     <input type='checkbox' onChange={handleTouretteSsyndromeChange} />
-                                    <label htmlFor='checkbox'>Tourette's Syndrome</label>
+                                    <label htmlFor='checkbox'>Tourettes Syndrome</label>
                                 </div>
 
                                 <div className='flex gap-1 items-center'>
                                     <input type='checkbox' onChange={handleAlzheimerSChange} />
-                                    <label htmlFor='checkbox'>Alzheimer's</label>
+                                    <label htmlFor='checkbox'>Alzheimers</label>
                                 </div>
 
                                 <div className='flex gap-1 items-center'>
