@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {API_URL} from '@/config/config'
 import { toast } from "sonner"
 import Image from "next/image";
@@ -90,6 +90,12 @@ export default function PanelPaciente({ params }: { params: { id: string } }) {
     const [helps_alzheimer_s, setAlzheimerS] = useState(0);
     const [helps_hiv_aids, setHivAids] = useState(0);
     const [helps_tinnitus, setTinnitus] = useState(0);  
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true)
+      }, []);
+
 
 
   
@@ -949,17 +955,19 @@ export default function PanelPaciente({ params }: { params: { id: string } }) {
                             </SelectContent>
                             </Select>
             <Textarea placeholder="Si deseas prescribir una receta podras escribirla aqui..." id="message" />
-            <div>
-                    <PDFDownloadLink document={<PDF />} fileName="myfirstpdf.pdf">
-                {({ loading, url, error, blob }) =>
-                loading ? (
-                    toast("Cargando Receta")
-                ) : (
-                    <Button className="bg-green-400 text-black">Generar</Button>
-                )
-                }
-            </PDFDownloadLink>
-            </div>
+                                {
+                                    isClient &&             <div>
+                                    <PDFDownloadLink document={<PDF />} fileName="myfirstpdf.pdf">
+                                {({ loading, url, error, blob }) =>
+                                loading ? (
+                                    toast("Cargando Receta")
+                                ) : (
+                                    <Button className="bg-green-400 text-black">Generar</Button>
+                                )
+                                }
+                            </PDFDownloadLink>
+                            </div>
+                                }
             </div>
         </div>
     </div>
