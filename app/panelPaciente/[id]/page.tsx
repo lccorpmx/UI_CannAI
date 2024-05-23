@@ -36,19 +36,19 @@ import Header from '@/components/Header';
   } from "@/components/ui/resizable"
   
 
-export default function page({ params }: { params: { id: string } }) {
-    const [feeling_relaxed, setRelaxed] = useState([0]);
-    const [feeling_happy, setHappy] = useState([0]);
-    const [feeling_euphoric, setEuphoric] = useState([0]);
-    const [feeling_uplifted, setUplifted] = useState([0]);
-    const [feeling_sleepy, setSleepy] = useState([0]);
-    const [feeling_hungry, setHungry] = useState([0]);
-    const [feeling_talkative, setTalkative] = useState([0]);
-    const [feeling_creative, setCreative] = useState([0]);
-    const [feeling_energetic, setEnergetic] = useState([0]);
-    const [feeling_focused, setFocused] = useState([0]);
-    const [feeling_giggly, setGiggly] = useState([0]);
-    const [feeling_aroused, setAroused] = useState([0]);
+export default function PanelPaciente({ params }: { params: { id: string } }) {
+    const [feeling_relaxed, setRelaxed] = useState(0);
+    const [feeling_happy, setHappy] = useState(0);
+    const [feeling_euphoric, setEuphoric] = useState(0);
+    const [feeling_uplifted, setUplifted] = useState(0);
+    const [feeling_sleepy, setSleepy] = useState(0);
+    const [feeling_hungry, setHungry] = useState(0);
+    const [feeling_talkative, setTalkative] = useState(0);
+    const [feeling_creative, setCreative] = useState(0);
+    const [feeling_energetic, setEnergetic] = useState(0);
+    const [feeling_focused, setFocused] = useState(0);
+    const [feeling_giggly, setGiggly] = useState(0);
+    const [feeling_aroused, setAroused] = useState(0);
     const [helps_stress, setStress] = useState(0);
     const [helps_pain, setPain] = useState(0);
     const [helps_depression, setDepression] = useState(0);
@@ -93,52 +93,52 @@ export default function page({ params }: { params: { id: string } }) {
 
 
   
-    const handleRelaxedChange = (newValue: []) => {
-        setRelaxed(newValue);
+    const handleRelaxedChange = (newValue: number[]) => {
+        setRelaxed(newValue.shift() as number);
     };
     
-    const handleHappyChange = (newValue: []) => {
-        setHappy(newValue);
+    const handleHappyChange = (newValue: number[]) => {
+        setHappy(newValue.shift() as number);
     };
     
-    const handleEuphoricChange = (newValue: []) => {
-        setEuphoric(newValue);
+    const handleEuphoricChange = (newValue: number[]) => {
+        setEuphoric(newValue.shift() as number);
     };
     
-    const handleUpliftedChange = (newValue: []) => {
-        setUplifted(newValue);
+    const handleUpliftedChange = (newValue: number[]) => {
+        setUplifted(newValue.shift() as number);
     };
     
-    const handleSleepyChange = (newValue: []) => {
-        setSleepy(newValue);
+    const handleSleepyChange = (newValue: number[]) => {
+        setSleepy(newValue.shift() as number);
     };
     
-    const handleHungryChange = (newValue: []) => {
-        setHungry(newValue);
+    const handleHungryChange = (newValue: number[]) => {
+        setHungry(newValue.shift() as number);
     };
     
-    const handleTalkativeChange = (newValue: []) => {
-        setTalkative(newValue);
+    const handleTalkativeChange = (newValue: number[]) => {
+        setTalkative(newValue.shift() as number);
     };
     
-    const handleCreativeChange = (newValue: []) => {
-        setCreative(newValue);
+    const handleCreativeChange = (newValue: number[]) => {
+        setCreative(newValue.shift() as number);
     };
     
-    const handleEnergeticChange = (newValue: []) => {
-        setEnergetic(newValue);
+    const handleEnergeticChange = (newValue: number[]) => {
+        setEnergetic(newValue.shift() as number);
     };
     
-    const handleFocusedChange = (newValue: []) => {
-        setFocused(newValue);
+    const handleFocusedChange = (newValue: number[]) => {
+        setFocused(newValue.shift() as number);
     };
     
-    const handleGigglyChange = (newValue: []) => {
-        setGiggly(newValue);
+    const handleGigglyChange = (newValue: number[]) => {
+        setGiggly(newValue.shift() as number);
     };
     
-    const handleArousedChange = (newValue: []) => {
-        setAroused(newValue);
+    const handleArousedChange = (newValue: number[]) => {
+        setAroused(newValue.shift() as number);
     };
 
     const handleStressChange = () => {
@@ -329,21 +329,21 @@ export default function page({ params }: { params: { id: string } }) {
     const handlePrediction = async () => {
       // Construye el objeto de datos a enviar a la API
       const requestData = {
-        preferencias_usuario_perfil: [
-            Number.isInteger(Number(feeling_relaxed[0])) ? Number(feeling_relaxed[0]) : 0,
-            Number.isInteger(Number(feeling_happy[0])) ? Number(feeling_happy[0]) : 0,
-            Number.isInteger(Number(feeling_euphoric[0])) ? Number(feeling_euphoric[0]) : 0,
-            Number.isInteger(Number(feeling_uplifted[0])) ? Number(feeling_uplifted[0]) : 0,
-            Number.isInteger(Number(feeling_sleepy[0])) ? Number(feeling_sleepy[0]) : 0,
-            Number.isInteger(Number(feeling_hungry[0])) ? Number(feeling_hungry[0]) : 0,
-            Number.isInteger(Number(feeling_talkative[0])) ? Number(feeling_talkative[0]) : 0,
-            Number.isInteger(Number(feeling_creative[0])) ? Number(feeling_creative[0]) : 0,
-            Number.isInteger(Number(feeling_energetic[0])) ? Number(feeling_energetic[0]) : 0,
-            Number.isInteger(Number(feeling_focused[0])) ? Number(feeling_focused[0]) : 0,
-            Number.isInteger(Number(feeling_giggly[0])) ? Number(feeling_giggly[0]) : 0,
-            Number.isInteger(Number(feeling_aroused[0])) ? Number(feeling_aroused[0]) : 0,
-        ],
-        preferencias_usuario_cepa: [
+        preferencias_usuario_perfil: {
+            feeling_relaxed,
+            feeling_happy,
+            feeling_euphoric,
+            feeling_uplifted,
+            feeling_sleepy,
+            feeling_hungry,
+            feeling_talkative,
+            feeling_creative,
+            feeling_energetic,
+            feeling_focused,
+            feeling_giggly,
+            feeling_aroused,
+        },
+        preferencias_usuario_cepa: {
             helps_stress, 
             helps_pain, 
             helps_depression, 
@@ -385,38 +385,35 @@ export default function page({ params }: { params: { id: string } }) {
             helps_alzheimer_s, 
             helps_hiv_aids, 
             helps_tinnitus
-        ],
+        },
       };
 
-    console.log(requestData)
    
       try {
-        // Realiza la solicitud HTTP a tu API
+        
         const response = await fetch(`${API_URL}`, {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(requestData),
-        })
-        // Verifica si la solicitud fue exitosa (código de estado 200)
-        if (response.ok) {
-          const data = await response.json();
-          console.log(data)
-          setTimeout(() => {
-                    // Maneja la respuesta de tu API aquí
-          setCepasCercanas(data.cepas_recomendadas)
-          toast("Predicción Realizada")
-          }, 1500);
-        } else {
-          // Maneja errores en la respuesta
-          console.error('Error en la respuesta de la API:', response.statusText);
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestData),
+          })
+          if (response.ok) {
+            const data = await response.json();
+            console.log(data)
+            setTimeout(() => {
+                      // Maneja la respuesta de tu API aquí
+            setCepasCercanas(data.cepas_recomendadas)
+            toast("Predicción Realizada")
+            }, 1500);
+          } else {
+            // Maneja errores en la respuesta
+            console.error('Error en la respuesta de la API:', response.statusText);
         }
       } catch (error) {
         // Maneja errores en la conexión o solicitud
         toast("Ocurrio un Error")
-        toast("Intentalo mas Tarde")
     }
     };
   return (
@@ -440,12 +437,12 @@ export default function page({ params }: { params: { id: string } }) {
                                     <span className="">Relaxed</span>
                                 </div>
                                 <Slider
-                                    defaultValue={feeling_relaxed}
+                                    value={[feeling_relaxed]}
                                     max={100}
                                     step={1}
                                     onValueChange={handleRelaxedChange}
                                     className="mr-2"/>
-                                <span className="text-xl">{feeling_relaxed[0]}</span>
+                                <span className="text-xl">{feeling_relaxed}</span>
                                 </div>
 
 
@@ -454,12 +451,12 @@ export default function page({ params }: { params: { id: string } }) {
                                     <span>Happy</span>
                                 </div>
                                 <Slider
-                                    defaultValue={feeling_happy}
+                                    value={[feeling_happy]}
                                     max={100}
                                     step={1}
                                     onValueChange={handleHappyChange}
                                     className="mr-2"/>
-                                <span className="text-xl">{feeling_happy[0]}</span>
+                                <span className="text-xl">{feeling_happy}</span>
                                 </div>
 
                                 <div className="flex items-center p-2">
@@ -467,12 +464,12 @@ export default function page({ params }: { params: { id: string } }) {
                                     <span>Euphoric</span>
                                 </div>
                                 <Slider
-                                    defaultValue={feeling_euphoric}
+                                    value={[feeling_euphoric]}
                                     max={100}
                                     step={1}
                                     onValueChange={handleEuphoricChange}
                                     className="mr-2"/>
-                                <span className="text-xl">{feeling_euphoric[0]}</span>
+                                <span className="text-xl">{feeling_euphoric}</span>
                                 </div>
 
                                 <div className="flex items-center p-2">
@@ -480,12 +477,12 @@ export default function page({ params }: { params: { id: string } }) {
                                     <span>Uplifted</span>
                                 </div>
                                 <Slider
-                                    defaultValue={feeling_uplifted}
+                                    value={[feeling_uplifted]}
                                     max={100}
                                     step={1}
                                     onValueChange={handleUpliftedChange}
                                     className="mr-2"/>
-                                <span className="text-xl">{feeling_uplifted[0]}</span>
+                                <span className="text-xl">{feeling_uplifted}</span>
                                 </div>
 
                                 <div className="flex items-center p-2">
@@ -493,12 +490,12 @@ export default function page({ params }: { params: { id: string } }) {
                                     <span>Sleepy</span>
                                 </div>
                                 <Slider
-                                    defaultValue={feeling_sleepy}
+                                    value={[feeling_sleepy]}
                                     max={100}
                                     step={1}
                                     onValueChange={handleSleepyChange}
                                     className="mr-2"/>
-                                <span className="text-xl">{feeling_sleepy[0]}</span>
+                                <span className="text-xl">{feeling_sleepy}</span>
                                 </div>
 
                                 <div className="flex items-center p-2">
@@ -506,12 +503,12 @@ export default function page({ params }: { params: { id: string } }) {
                                     <span>Hungry</span>
                                 </div>
                                 <Slider
-                                    defaultValue={feeling_hungry}
+                                    value={[feeling_hungry]}
                                     max={100}
                                     step={1}
                                     onValueChange={handleHungryChange}
                                     className="mr-2"/>
-                                <span className="text-xl">{feeling_hungry[0]}</span>
+                                <span className="text-xl">{feeling_hungry}</span>
                                 </div>
 
                                 <div className="flex items-center p-2">
@@ -519,12 +516,12 @@ export default function page({ params }: { params: { id: string } }) {
                                     <span>Talkative</span>
                                 </div>
                                 <Slider
-                                    defaultValue={feeling_talkative}
+                                    value={[feeling_talkative]}
                                     max={100}
                                     step={1}
                                     onValueChange={handleTalkativeChange}
                                     className="mr-2"/>
-                                <span className="text-xl">{feeling_talkative[0]}</span>
+                                <span className="text-xl">{feeling_talkative}</span>
                                 </div>
 
                                 <div className="flex items-center p-2">
@@ -532,12 +529,12 @@ export default function page({ params }: { params: { id: string } }) {
                                     <span>Creative</span>
                                 </div>
                                 <Slider
-                                    defaultValue={feeling_creative}
+                                    value={[feeling_creative]}
                                     max={100}
                                     step={1}
                                     onValueChange={handleCreativeChange}
                                     className="mr-2"/>
-                                <span className="text-xl">{feeling_creative[0]}</span>
+                                <span className="text-xl">{feeling_creative}</span>
                                 </div>
 
                                 <div className="flex items-center p-2">
@@ -545,12 +542,12 @@ export default function page({ params }: { params: { id: string } }) {
                                     <span>Energetic</span>
                                 </div>
                                 <Slider
-                                    defaultValue={feeling_energetic}
+                                    value={[feeling_energetic]}
                                     max={100}
                                     step={1}
                                     onValueChange={handleEnergeticChange}
                                     className="mr-2"/>
-                                <span className="text-xl">{feeling_energetic[0]}</span>
+                                <span className="text-xl">{feeling_energetic}</span>
                                 </div>
 
                                 <div className="flex items-center p-2">
@@ -558,12 +555,12 @@ export default function page({ params }: { params: { id: string } }) {
                                     <span>Focused</span>
                                 </div>
                                 <Slider
-                                    defaultValue={feeling_focused}
+                                    value={[feeling_focused]}
                                     max={100}
                                     step={1}
                                     onValueChange={handleFocusedChange}
                                     className="mr-2"/>
-                                <span className="text-xl">{feeling_focused[0]}</span>
+                                <span className="text-xl">{feeling_focused}</span>
                                 </div>
 
                                 <div className="flex items-center p-2">
@@ -571,12 +568,12 @@ export default function page({ params }: { params: { id: string } }) {
                                     <span>Giggly</span>
                                 </div>
                                 <Slider
-                                    defaultValue={feeling_giggly}
+                                    value={[feeling_giggly]}
                                     max={100}
                                     step={1}
                                     onValueChange={handleGigglyChange}
                                     className="mr-2"/>
-                                <span className="text-xl">{feeling_giggly[0]}</span>
+                                <span className="text-xl">{feeling_giggly}</span>
                                 </div>
 
                                 <div className="flex items-center p-2">
@@ -584,12 +581,12 @@ export default function page({ params }: { params: { id: string } }) {
                                     <span>Aroused</span>
                                 </div>
                                 <Slider
-                                    defaultValue={feeling_aroused}
+                                    value={[feeling_aroused]}
                                     max={100}
                                     step={1}
                                     onValueChange={handleArousedChange}
                                     className="mr-2"/>
-                                <span className="text-xl">{feeling_aroused[0]}</span>
+                                <span className="text-xl">{feeling_aroused}</span>
                                 </div>
                       
                             </div>
