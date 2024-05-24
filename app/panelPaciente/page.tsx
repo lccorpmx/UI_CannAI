@@ -1,6 +1,7 @@
 'use client'
+
 import React, { useEffect, useState } from 'react'
-import {API_URL} from '@/config/config'
+import { API_URL } from '@/config/config'
 import { toast } from "sonner"
 import Image from "next/image";
 import { Slider } from "@/components/ui/slider"
@@ -9,7 +10,7 @@ import { Progress } from "@/components/ui/progress"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import PDF from "@/components/pdf"
-import { PDFDownloadLink  } from '@react-pdf/renderer';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 
 import {
     Select,
@@ -17,8 +18,8 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-  } from "@/components/ui/select"
-  
+} from "@/components/ui/select"
+
 
 import {
     Carousel,
@@ -26,15 +27,14 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-  } from "@/components/ui/carousel"
-  
+} from "@/components/ui/carousel"
+
 import Header from '@/components/Header';
-  import {
+import {
     ResizableHandle,
     ResizablePanel,
     ResizablePanelGroup,
-  } from "@/components/ui/resizable"
-  
+} from "@/components/ui/resizable"
 
 export default function PanelPaciente({ params }: { params: { id: string } }) {
     const [feeling_relaxed, setRelaxed] = useState(0);
@@ -89,887 +89,755 @@ export default function PanelPaciente({ params }: { params: { id: string } }) {
     const [helps_tourette_ssyndrome, setTouretteSsyndrome] = useState(0);
     const [helps_alzheimer_s, setAlzheimerS] = useState(0);
     const [helps_hiv_aids, setHivAids] = useState(0);
-    const [helps_tinnitus, setTinnitus] = useState(0);  
+    const [helps_tinnitus, setTinnitus] = useState(0);
     const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
         setIsClient(true)
-      }, []);
+    }, []);
 
-
-
-  
     const handleRelaxedChange = (newValue: number[]) => {
         setRelaxed(newValue.shift() as number);
     };
-    
+
     const handleHappyChange = (newValue: number[]) => {
         setHappy(newValue.shift() as number);
     };
-    
+
     const handleEuphoricChange = (newValue: number[]) => {
         setEuphoric(newValue.shift() as number);
     };
-    
+
     const handleUpliftedChange = (newValue: number[]) => {
         setUplifted(newValue.shift() as number);
     };
-    
+
     const handleSleepyChange = (newValue: number[]) => {
         setSleepy(newValue.shift() as number);
     };
-    
+
     const handleHungryChange = (newValue: number[]) => {
         setHungry(newValue.shift() as number);
     };
-    
+
     const handleTalkativeChange = (newValue: number[]) => {
         setTalkative(newValue.shift() as number);
     };
-    
+
     const handleCreativeChange = (newValue: number[]) => {
         setCreative(newValue.shift() as number);
     };
-    
+
     const handleEnergeticChange = (newValue: number[]) => {
         setEnergetic(newValue.shift() as number);
     };
-    
+
     const handleFocusedChange = (newValue: number[]) => {
         setFocused(newValue.shift() as number);
     };
-    
+
     const handleGigglyChange = (newValue: number[]) => {
         setGiggly(newValue.shift() as number);
     };
-    
+
     const handleArousedChange = (newValue: number[]) => {
         setAroused(newValue.shift() as number);
     };
 
-    const handleStressChange = () => {
-        setStress(100);
-    };
-    
-    const handlePainChange = () => {
-        setPain(100);
-    };
-    
-    const handleDepressionChange = () => {
-        setDepression(100);
-    };
-    
-    const handleAnxietyChange = () => {
-        setAnxiety(100);
-    };
-    
-    const handleInsomniaChange = () => {
-        setInsomnia(100);
-    };
-    
-    const handleHeadacheChange = () => {
-        setHeadache(100);
-    };
-    
-    const handlePtsdChange = () => {
-        setPtsd(100);
-    };
-    
-    const handleFatigueChange = () => {
-        setFatigue(100);
-    };
-    
-    const handleLackofappetiteChange = () => {
-        setLackofappetite(100);
-    };
-    
-    const handleNauseaChange = () => {
-        setNausea(100);
-    };
-    
-    const handleHeadachesChange = () => {
-        setHeadaches(100);
-    };
-    
-    const handleBipolarDisorderChange = () => {
-        setBipolarDisorder(100);
-    };
-    
-    const handleCancerChange = () => {
-        setCancer(100);
-    };
-    
-    const handleTinglyChange = () => {
-        setTingly(100);
-    };
-    
-    const handleCrampsChange = () => {
-        setCramps(100);
-    };
-    
-    const handleGastrointestinaldisorderChange = () => {
-        setGastrointestinaldisorder(100);
-    };
-    
-    const handleInflammationChange = () => {
-        setInflammation(100);
-    };
-    
-    const handleMusclespasmsChange = () => {
-        setMusclespasms(100);
-    };
-    
-    const handleEyePressureChange = () => {
-        setEyePressure(100);
-    };
-    
-    const handleMigrainesChange = () => {
-        setMigraines(100);
-    };
-    
-    const handleAsthmaChange = () => {
-        setAsthma(100);
-    };
-    
-    const handleAnorexiaChange = () => {
-        setAnorexia(100);
-    };
-    
-    const handleArthritisChange = () => {
-        setArthritis(100);
-    };
-    
-    const handleAddAdhdChange = () => {
-        setAddAdhd(100);
-    };
-    
-    const handleMusculardystrophyChange = () => {
-        setMusculardystrophy(100);
-    };
-    
-    const handleHypertensionChange = () => {
-        setHypertension(100);
-    };
-    
-    const handleGlaucomaChange = () => {
-        setGlaucoma(100);
-    };
-    
-    const handlePmsChange = () => {
-        setPms(100);
-    };
-    
-    const handleSeizuresChange = () => {
-        setSeizures(100);
-    };
-    
-    const handleSpasticityChange = () => {
-        setSpasticity(100);
-    };
-    
-    const handleSpinalcordinjuryChange = () => {
-        setSpinalcordinjury(100);
-    };
-    
-    const handleFibromyalgiaChange = () => {
-        setFibromyalgia(100);
-    };
-    
-    const handleCrohnSDiseaseChange = () => {
-        setCrohnSDisease(100);
-    };
-    
-    const handlePhantomlimbpainChange = () => {
-        setPhantomlimbpain(100);
-    };
-    
-    const handleEpilepsyChange = () => {
-        setEpilepsy(100);
-    };
-    
-    const handleMultiplesclerosisChange = () => {
-        setMultiplesclerosis(100);
-    };
-    
-    const handleParkinsonSChange = () => {
-        setParkinsonS(100);
-    };
-    
-    const handleTouretteSsyndromeChange = () => {
-        setTouretteSsyndrome(100);
-    };
-    
-    const handleAlzheimerSChange = () => {
-        setAlzheimerS(100);
-    };
-    
-    const handleHivAidsChange = () => {
-        setHivAids(100);
-    };
-    
-    const handleTinnitusChange = () => {
-        setTinnitus(100);
-    };
-    
-    
-  
-    const [cepasCercanas, setCepasCercanas] = useState<{
-        Cepa: string
-        Nombre: string,
-        Img_url: string,
-        feeling_relaxed: number,
-        feeling_happy: number,
-        feeling_euphoric: number,
-        feeling_uplifted: number,
-        feeling_sleepy: number,
-        feeling_creative: number,
-        feeling_energetic: number,
-        feeling_focused: number,
-        feeling_hungry: number,
-        feeling_talkative: number,
-        feeling_giggly: number,
-        feeling_aroused: number,
-        
 
-    }[]>([]);
+
+    const [selectedCepa, setSelectedCepa] = useState('');
+    const [descripcion, setDescripcion] = useState('');
+    const [nombre, setNombre] = useState('');
+    const [edad, setEdad] = useState('');
+    const [telefono, setTelefono] = useState('');
+    const [guia, setGuia] = useState('');
+    const [padecimiento, setPadecimiento] = useState('');
+    const [dosis, setDosis] = useState('');
+
+
+
+
+    const handleCepaChange = (value: string) => {
+        setSelectedCepa(value);
+    };
+
+    const handleDescripcionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setDescripcion(event.target.value);
+    };
+
+    const handleNombreChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setNombre(event.target.value);
+    };
+
+    const handleEdadChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setEdad(event.target.value);
+    };
+
+    const handleTelefonoChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setTelefono(event.target.value);
+    };
+
+    const handleGuiaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setGuia(event.target.value);
+    };
+
+    const handlePadecimientoChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setPadecimiento(event.target.value);
+    };
+
+    const handleDosisChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setDosis(event.target.value);
+    };
+
+    const [cepasCercanas, setCepasCercanas] = useState<any[]>([]);
+    const [estadoPrediccion, setEstadoPrediccion] = useState("");
+
+
     const handlePrediction = async () => {
-      // Construye el objeto de datos a enviar a la API
-      const requestData = {
-        preferencias_usuario_perfil: {
-            feeling_relaxed,
-            feeling_happy,
-            feeling_euphoric,
-            feeling_uplifted,
-            feeling_sleepy,
-            feeling_hungry,
-            feeling_talkative,
-            feeling_creative,
-            feeling_energetic,
-            feeling_focused,
-            feeling_giggly,
-            feeling_aroused,
-        },
-        preferencias_usuario_cepa: {
-            helps_stress, 
-            helps_pain, 
-            helps_depression, 
-            helps_anxiety, 
-            helps_insomnia, 
-            helps_headache, 
-            helps_ptsd, 
-            helps_fatigue, 
-            helps_lackofappetite, 
-            helps_nausea, 
-            helps_headaches, 
-            helps_bipolar_disorder, 
-            helps_cancer, 
-            helps_tingly, 
-            helps_cramps, 
-            helps_gastrointestinaldisorder, 
-            helps_inflammation, 
-            helps_musclespasms, 
-            helps_eye_pressure, 
-            helps_migraines, 
-            helps_asthma, 
-            helps_anorexia, 
-            helps_arthritis, 
-            helps_add_adhd, 
-            helps_musculardystrophy, 
-            helps_hypertension, 
-            helps_glaucoma, 
-            helps_pms, 
-            helps_seizures, 
-            helps_spasticity, 
-            helps_spinalcordinjury, 
-            helps_fibromyalgia, 
-            helps_crohn_s_disease, 
-            helps_phantomlimbpain, 
-            helps_epilepsy, 
-            helps_multiplesclerosis, 
-            helps_parkinson_s, 
-            helps_tourette_ssyndrome, 
-            helps_alzheimer_s, 
-            helps_hiv_aids, 
-            helps_tinnitus
-        },
-      };
-
-   
-      try {
-        
-        const response = await fetch(`${API_URL}`, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-              'Content-Type': 'application/json',
+        // Construye el objeto de datos a enviar a la API
+        const requestData = {
+            preferencias_usuario_perfil: {
+                feeling_relaxed,
+                feeling_happy,
+                feeling_euphoric,
+                feeling_uplifted,
+                feeling_sleepy,
+                feeling_hungry,
+                feeling_talkative,
+                feeling_creative,
+                feeling_energetic,
+                feeling_focused,
+                feeling_giggly,
+                feeling_aroused,
             },
-            body: JSON.stringify(requestData),
-          })
-          if (response.ok) {
-            const data = await response.json();
-            console.log(data)
-            setTimeout(() => {
-                      // Maneja la respuesta de tu API aquí
-            setCepasCercanas(data.cepas_recomendadas)
-            toast("Predicción Realizada")
-            }, 1500);
-          } else {
-            // Maneja errores en la respuesta
-            console.error('Error en la respuesta de la API:', response.statusText);
+            preferencias_usuario_cepa: {
+                helps_stress,
+                helps_pain,
+                helps_depression,
+                helps_anxiety,
+                helps_insomnia,
+                helps_headache,
+                helps_ptsd,
+                helps_fatigue,
+                helps_lackofappetite,
+                helps_nausea,
+                helps_headaches,
+                helps_bipolar_disorder,
+                helps_cancer,
+                helps_tingly,
+                helps_cramps,
+                helps_gastrointestinaldisorder,
+                helps_inflammation,
+                helps_musclespasms,
+                helps_eye_pressure,
+                helps_migraines,
+                helps_asthma,
+                helps_anorexia,
+                helps_arthritis,
+                helps_add_adhd,
+                helps_musculardystrophy,
+                helps_hypertension,
+                helps_glaucoma,
+                helps_pms,
+                helps_seizures,
+                helps_spasticity,
+                helps_spinalcordinjury,
+                helps_fibromyalgia,
+                helps_crohn_s_disease,
+                helps_phantomlimbpain,
+                helps_epilepsy,
+                helps_multiplesclerosis,
+                helps_parkinson_s,
+                helps_tourette_ssyndrome,
+                helps_alzheimer_s,
+                helps_hiv_aids,
+                helps_tinnitus
+            },
+        };
+
+        let flagFeelings = 0
+        let flagHelps = 0
+
+        for (const key in requestData.preferencias_usuario_perfil) {
+            if (Object.prototype.hasOwnProperty.call(requestData.preferencias_usuario_perfil, key)) {
+                const element = requestData.preferencias_usuario_perfil[key as keyof typeof requestData.preferencias_usuario_perfil];
+                if (element > 0) {
+                    flagFeelings = flagFeelings + 1
+                }
+            }
         }
-      } catch (error) {
-        // Maneja errores en la conexión o solicitud
-        toast("Ocurrio un Error")
-    }
+
+        // VALIDAR QUE SOLO SELECCIONE MAS 3 SLIDES PERO MENOS DE 6 (TRATAMIENTOS)
+        for (const key in requestData.preferencias_usuario_cepa) {
+            if (Object.prototype.hasOwnProperty.call(requestData.preferencias_usuario_cepa, key)) {
+                const element = requestData.preferencias_usuario_cepa[key as keyof typeof requestData.preferencias_usuario_cepa];
+                console.log(key)
+
+                if (element > 0) {
+                    flagHelps = flagHelps + 1
+                }
+            }
+        }
+
+        if(flagFeelings >= 3 && flagFeelings <= 6){
+            if(flagHelps >= 1 && flagHelps <= 3){
+                try {
+                    const response = await fetch(`${API_URL}`, {
+                        method: 'POST',
+                        mode: 'cors',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(requestData),
+                    })
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log(data)
+                        setTimeout(() => {
+                            setCepasCercanas(data["Cepa"]);
+                            setEstadoPrediccion(data.mensaje)
+                            toast("Predicción Realizada")
+                        }, 1500);
+                    } else {
+                        // Maneja errores en la respuesta
+                        console.error('Error en la respuesta de la API:', response.statusText);
+                    }
+                } catch (error) {
+                    // Maneja errores en la conexión o solicitud
+                    toast("Ocurrio un Error")
+                }
+            }else{
+                if(flagHelps>3){
+                    toast("Elige maximo 3 Helps")
+                }
+                if(flagHelps<1){
+                    toast("Elige almenos 1 Help")
+                }
+            }
+        }else{
+            if(flagFeelings>6){
+                toast("Elige maximo 6 Feelings")
+            }
+            if(flagFeelings<3){
+                toast("Elige almenos 3 Feelings")
+            }
+        }
+
     };
-  return (
-    <div>
-        <Header></Header>
-        <div className='p-16'>
-            <div className='flex gap-6'>
-                <span className='text-2xl'>CannAI</span>
-            </div>
 
-            <div>
-                <ResizablePanelGroup direction="horizontal" className='border border-black-2 p-4'>
-                    <ResizablePanel>
-                        <div className='flex flex-col'>
+
+    return (
+        <div>
+            <Header></Header>
+            <div className='p-16'>
+                <div className='flex gap-6'>
+                    <span className='text-2xl'>CannAI</span>
+                </div>
+
+                <div>
+                    <ResizablePanelGroup direction="horizontal" className='border border-black-2 p-4'>
+                        <ResizablePanel>
                             <div className='flex flex-col'>
-                            <span className='text-xl text-green-400 font-bold'>Efectos:</span>
-                            <span className='text-xs font-extralight'>Utiliza los efectos esperados para enfocar tu busqueda en un perfil:</span>
-                            <div>
-                                <div className="flex items-center p-2">
-                                <div className="flex flex-col items-center mr-2">
-                                    <span className="">Relaxed</span>
-                                </div>
-                                <Slider
-                                    value={[feeling_relaxed]}
-                                    max={100}
-                                    step={1}
-                                    onValueChange={handleRelaxedChange}
-                                    className="mr-2"/>
-                                <span className="text-xl">{feeling_relaxed}</span>
-                                </div>
+                                <div className='flex flex-col'>
+                                    <span className='text-xl text-green-400 font-bold'>Efectos:</span>
+                                    <span className='text-xs font-extralight'>Utiliza los efectos esperados para enfocar tu busqueda en un perfil:</span>
+                                    <div>
+                                        <div className="flex items-center p-2">
+                                            <div className="flex flex-col items-center mr-2">
+                                                <span className="">Relaxed</span>
+                                            </div>
+                                            <Slider
+                                                value={[feeling_relaxed]}
+                                                max={100}
+                                                step={1}
+                                                onValueChange={handleRelaxedChange}
+                                                className="mr-2" />
+                                            <span className="text-xl">{feeling_relaxed}</span>
+                                        </div>
 
 
-                                <div className="flex items-center p-2">
-                                <div className="flex flex-col items-center mr-2">
-                                    <span>Happy</span>
-                                </div>
-                                <Slider
-                                    value={[feeling_happy]}
-                                    max={100}
-                                    step={1}
-                                    onValueChange={handleHappyChange}
-                                    className="mr-2"/>
-                                <span className="text-xl">{feeling_happy}</span>
-                                </div>
+                                        <div className="flex items-center p-2">
+                                            <div className="flex flex-col items-center mr-2">
+                                                <span>Happy</span>
+                                            </div>
+                                            <Slider
+                                                value={[feeling_happy]}
+                                                max={100}
+                                                step={1}
+                                                onValueChange={handleHappyChange}
+                                                className="mr-2" />
+                                            <span className="text-xl">{feeling_happy}</span>
+                                        </div>
 
-                                <div className="flex items-center p-2">
-                                <div className="flex flex-col items-center mr-2">
-                                    <span>Euphoric</span>
-                                </div>
-                                <Slider
-                                    value={[feeling_euphoric]}
-                                    max={100}
-                                    step={1}
-                                    onValueChange={handleEuphoricChange}
-                                    className="mr-2"/>
-                                <span className="text-xl">{feeling_euphoric}</span>
-                                </div>
+                                        <div className="flex items-center p-2">
+                                            <div className="flex flex-col items-center mr-2">
+                                                <span>Euphoric</span>
+                                            </div>
+                                            <Slider
+                                                value={[feeling_euphoric]}
+                                                max={100}
+                                                step={1}
+                                                onValueChange={handleEuphoricChange}
+                                                className="mr-2" />
+                                            <span className="text-xl">{feeling_euphoric}</span>
+                                        </div>
 
-                                <div className="flex items-center p-2">
-                                <div className="flex flex-col items-center mr-2">
-                                    <span>Uplifted</span>
-                                </div>
-                                <Slider
-                                    value={[feeling_uplifted]}
-                                    max={100}
-                                    step={1}
-                                    onValueChange={handleUpliftedChange}
-                                    className="mr-2"/>
-                                <span className="text-xl">{feeling_uplifted}</span>
-                                </div>
+                                        <div className="flex items-center p-2">
+                                            <div className="flex flex-col items-center mr-2">
+                                                <span>Uplifted</span>
+                                            </div>
+                                            <Slider
+                                                value={[feeling_uplifted]}
+                                                max={100}
+                                                step={1}
+                                                onValueChange={handleUpliftedChange}
+                                                className="mr-2" />
+                                            <span className="text-xl">{feeling_uplifted}</span>
+                                        </div>
 
-                                <div className="flex items-center p-2">
-                                <div className="flex flex-col items-center mr-2">
-                                    <span>Sleepy</span>
-                                </div>
-                                <Slider
-                                    value={[feeling_sleepy]}
-                                    max={100}
-                                    step={1}
-                                    onValueChange={handleSleepyChange}
-                                    className="mr-2"/>
-                                <span className="text-xl">{feeling_sleepy}</span>
-                                </div>
+                                        <div className="flex items-center p-2">
+                                            <div className="flex flex-col items-center mr-2">
+                                                <span>Sleepy</span>
+                                            </div>
+                                            <Slider
+                                                value={[feeling_sleepy]}
+                                                max={100}
+                                                step={1}
+                                                onValueChange={handleSleepyChange}
+                                                className="mr-2" />
+                                            <span className="text-xl">{feeling_sleepy}</span>
+                                        </div>
 
-                                <div className="flex items-center p-2">
-                                <div className="flex flex-col items-center mr-2">
-                                    <span>Hungry</span>
-                                </div>
-                                <Slider
-                                    value={[feeling_hungry]}
-                                    max={100}
-                                    step={1}
-                                    onValueChange={handleHungryChange}
-                                    className="mr-2"/>
-                                <span className="text-xl">{feeling_hungry}</span>
-                                </div>
+                                        <div className="flex items-center p-2">
+                                            <div className="flex flex-col items-center mr-2">
+                                                <span>Hungry</span>
+                                            </div>
+                                            <Slider
+                                                value={[feeling_hungry]}
+                                                max={100}
+                                                step={1}
+                                                onValueChange={handleHungryChange}
+                                                className="mr-2" />
+                                            <span className="text-xl">{feeling_hungry}</span>
+                                        </div>
 
-                                <div className="flex items-center p-2">
-                                <div className="flex flex-col items-center mr-2">
-                                    <span>Talkative</span>
-                                </div>
-                                <Slider
-                                    value={[feeling_talkative]}
-                                    max={100}
-                                    step={1}
-                                    onValueChange={handleTalkativeChange}
-                                    className="mr-2"/>
-                                <span className="text-xl">{feeling_talkative}</span>
-                                </div>
+                                        <div className="flex items-center p-2">
+                                            <div className="flex flex-col items-center mr-2">
+                                                <span>Talkative</span>
+                                            </div>
+                                            <Slider
+                                                value={[feeling_talkative]}
+                                                max={100}
+                                                step={1}
+                                                onValueChange={handleTalkativeChange}
+                                                className="mr-2" />
+                                            <span className="text-xl">{feeling_talkative}</span>
+                                        </div>
 
-                                <div className="flex items-center p-2">
-                                <div className="flex flex-col items-center mr-2">
-                                    <span>Creative</span>
-                                </div>
-                                <Slider
-                                    value={[feeling_creative]}
-                                    max={100}
-                                    step={1}
-                                    onValueChange={handleCreativeChange}
-                                    className="mr-2"/>
-                                <span className="text-xl">{feeling_creative}</span>
-                                </div>
+                                        <div className="flex items-center p-2">
+                                            <div className="flex flex-col items-center mr-2">
+                                                <span>Creative</span>
+                                            </div>
+                                            <Slider
+                                                value={[feeling_creative]}
+                                                max={100}
+                                                step={1}
+                                                onValueChange={handleCreativeChange}
+                                                className="mr-2" />
+                                            <span className="text-xl">{feeling_creative}</span>
+                                        </div>
 
-                                <div className="flex items-center p-2">
-                                <div className="flex flex-col items-center mr-2">
-                                    <span>Energetic</span>
-                                </div>
-                                <Slider
-                                    value={[feeling_energetic]}
-                                    max={100}
-                                    step={1}
-                                    onValueChange={handleEnergeticChange}
-                                    className="mr-2"/>
-                                <span className="text-xl">{feeling_energetic}</span>
-                                </div>
+                                        <div className="flex items-center p-2">
+                                            <div className="flex flex-col items-center mr-2">
+                                                <span>Energetic</span>
+                                            </div>
+                                            <Slider
+                                                value={[feeling_energetic]}
+                                                max={100}
+                                                step={1}
+                                                onValueChange={handleEnergeticChange}
+                                                className="mr-2" />
+                                            <span className="text-xl">{feeling_energetic}</span>
+                                        </div>
 
-                                <div className="flex items-center p-2">
-                                <div className="flex flex-col items-center mr-2">
-                                    <span>Focused</span>
-                                </div>
-                                <Slider
-                                    value={[feeling_focused]}
-                                    max={100}
-                                    step={1}
-                                    onValueChange={handleFocusedChange}
-                                    className="mr-2"/>
-                                <span className="text-xl">{feeling_focused}</span>
-                                </div>
+                                        <div className="flex items-center p-2">
+                                            <div className="flex flex-col items-center mr-2">
+                                                <span>Focused</span>
+                                            </div>
+                                            <Slider
+                                                value={[feeling_focused]}
+                                                max={100}
+                                                step={1}
+                                                onValueChange={handleFocusedChange}
+                                                className="mr-2" />
+                                            <span className="text-xl">{feeling_focused}</span>
+                                        </div>
 
-                                <div className="flex items-center p-2">
-                                <div className="flex flex-col items-center mr-2">
-                                    <span>Giggly</span>
-                                </div>
-                                <Slider
-                                    value={[feeling_giggly]}
-                                    max={100}
-                                    step={1}
-                                    onValueChange={handleGigglyChange}
-                                    className="mr-2"/>
-                                <span className="text-xl">{feeling_giggly}</span>
-                                </div>
+                                        <div className="flex items-center p-2">
+                                            <div className="flex flex-col items-center mr-2">
+                                                <span>Giggly</span>
+                                            </div>
+                                            <Slider
+                                                value={[feeling_giggly]}
+                                                max={100}
+                                                step={1}
+                                                onValueChange={handleGigglyChange}
+                                                className="mr-2" />
+                                            <span className="text-xl">{feeling_giggly}</span>
+                                        </div>
 
-                                <div className="flex items-center p-2">
-                                <div className="flex flex-col items-center mr-2">
-                                    <span>Aroused</span>
+                                        <div className="flex items-center p-2">
+                                            <div className="flex flex-col items-center mr-2">
+                                                <span>Aroused</span>
+                                            </div>
+                                            <Slider
+                                                value={[feeling_aroused]}
+                                                max={100}
+                                                step={1}
+                                                onValueChange={handleArousedChange}
+                                                className="mr-2" />
+                                            <span className="text-xl">{feeling_aroused}</span>
+                                        </div>
+
+                                    </div>
                                 </div>
-                                <Slider
-                                    value={[feeling_aroused]}
-                                    max={100}
-                                    step={1}
-                                    onValueChange={handleArousedChange}
-                                    className="mr-2"/>
-                                <span className="text-xl">{feeling_aroused}</span>
-                                </div>
-                      
                             </div>
-                            </div>
-                        </div>
 
-                        <div className='flex flex-col'>
+
+                            
+
                             <div className='flex flex-col'>
-                            <span className='text-xl text-green-400 font-bold pt-4'>Tratamientos:</span>
-                            <span className='text-xs font-extralight'>Selecciona las afecciones que tu paciente presenta:</span>
-                            </div>
-                            <div className='grid grid-cols-4 pl-4 pt-2 pb-2 p-2'>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleStressChange} />
-                                    <label htmlFor='checkbox'>Stress</label>
+                                <div className='flex flex-col'>
+                                    <span className='text-xl text-green-400 font-bold pt-4'>Tratamientos:</span>
+                                    <span className='text-xs font-extralight'>Selecciona las afecciones que tu paciente presenta:</span>
                                 </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handlePainChange} />
-                                    <label htmlFor='checkbox'>Pain</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleDepressionChange} />
-                                    <label htmlFor='checkbox'>Depression</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleAnxietyChange} />
-                                    <label htmlFor='checkbox'>Anxiety</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleInsomniaChange} />
-                                    <label htmlFor='checkbox'>Insomnia</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleHeadacheChange} />
-                                    <label htmlFor='checkbox'>Headache</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handlePtsdChange} />
-                                    <label htmlFor='checkbox'>PTSD</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleFatigueChange} />
-                                    <label htmlFor='checkbox'>Fatigue</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleLackofappetiteChange} />
-                                    <label htmlFor='checkbox'>Lack of Apetitte</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleNauseaChange} />
-                                    <label htmlFor='checkbox'>Nausea</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleHeadachesChange} />
-                                    <label htmlFor='checkbox'>Headaches</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleBipolarDisorderChange} />
-                                    <label htmlFor='checkbox'>Bipolar Disorder</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleCancerChange} />
-                                    <label htmlFor='checkbox'>Cancer</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleTinglyChange} />
-                                    <label htmlFor='checkbox'>Tingly</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleCrampsChange} />
-                                    <label htmlFor='checkbox'>Cramps</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleGastrointestinaldisorderChange} />
-                                    <label htmlFor='checkbox'>Gastrointestinaldisorder</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleInflammationChange} />
-                                    <label htmlFor='checkbox'>Inflammation</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleMusclespasmsChange} />
-                                    <label htmlFor='checkbox'>Muscle spams</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleEyePressureChange} />
-                                    <label htmlFor='checkbox'>Eye Pressure</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleMigrainesChange} />
-                                    <label htmlFor='checkbox'>Migraines</label>
-                                </div>
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleAsthmaChange} />
-                                    <label htmlFor='checkbox'>Asthma</label>
-                                </div>
+                                <div className='grid grid-cols-4 pl-4 pt-2 pb-2 p-2'>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_stress === 100 ? true : false} onChange={(e) => setStress(helps_stress === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Stress</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_pain === 100 ? true : false} onChange={(e) => setPain(helps_pain === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Pain</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_depression === 100 ? true : false} onChange={(e) => setDepression(helps_depression === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Depression</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_anxiety === 100 ? true : false} onChange={(e) => setAnxiety(helps_anxiety === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Anxiety</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_insomnia === 100 ? true : false} onChange={(e) => setInsomnia(helps_insomnia=== 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Insomnia</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_headache === 100 ? true : false} onChange={(e) => setHeadache(helps_headache === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Headache</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_ptsd === 100 ? true : false} onChange={(e) => setPtsd(helps_ptsd === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>PTSD</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_fatigue === 100 ? true : false} onChange={(e) => setFatigue(helps_fatigue === 100 ? 0 : 100)}/>
+                                        <label htmlFor='checkbox'>Fatigue</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_lackofappetite === 100 ? true : false} onChange={(e) => setLackofappetite(helps_lackofappetite === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Lack of Apetitte</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_nausea === 100 ? true : false} onChange={(e) => setNausea(helps_nausea === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Nausea</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_headaches === 100 ? true : false} onChange={(e) => setHeadaches(helps_headaches === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Headaches</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_bipolar_disorder === 100 ? true : false} onChange={(e) => setBipolarDisorder(helps_bipolar_disorder === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Bipolar Disorder</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_cancer === 100 ? true : false} onChange={(e) => setCancer(helps_cancer === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Cancer</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_tingly === 100 ? true : false} onChange={(e) => setTingly(helps_tingly === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Tingly</label>
+                                    </div> 
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_cramps === 100 ? true : false} onChange={(e) => setCramps(helps_cramps === 100 ? 0 : 100)}/>
+                                        <label htmlFor='checkbox'>Cramps</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_gastrointestinaldisorder === 100 ? true : false} onChange={(e) => setGastrointestinaldisorder(helps_gastrointestinaldisorder === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Gastrointestinaldisorder</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_inflammation === 100 ? true : false} onChange={(e) => setInflammation(helps_inflammation === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Inflammation</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_musclespasms === 100 ? true : false} onChange={(e) => setMusclespasms(helps_musclespasms === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Muscle spams</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_eye_pressure === 100 ? true : false} onChange={(e) => setEyePressure(helps_eye_pressure === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Eye Pressure</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_migraines === 100 ? true : false} onChange={(e) => setMigraines(helps_migraines === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Migraines</label>
+                                    </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_asthma === 100 ? true : false} onChange={(e) => setAsthma(helps_asthma === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Asthma</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleAnorexiaChange} />
-                                    <label htmlFor='checkbox'>Anorexia</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_anorexia === 100 ? true : false} onChange={(e) => setAnorexia(helps_anorexia === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Anorexia</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleArthritisChange} />
-                                    <label htmlFor='checkbox'>Arthritis</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_arthritis === 100 ? true : false} onChange={(e) => setArthritis(helps_arthritis === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Arthritis</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleAddAdhdChange} />
-                                    <label htmlFor='checkbox'>ADD/ADHD</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_add_adhd === 100 ? true : false} onChange={(e) => setAddAdhd(helps_add_adhd === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>ADD/ADHD</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleMusculardystrophyChange} />
-                                    <label htmlFor='checkbox'>Muscular Dystrophy</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_musculardystrophy === 100 ? true : false} onChange={(e) => setMusculardystrophy(helps_musculardystrophy === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Muscular Dystrophy</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleHypertensionChange} />
-                                    <label htmlFor='checkbox'>Hypertension</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_hypertension === 100 ? true : false} onChange={(e) => setHypertension(helps_hypertension === 100 ? 0 : 100)}/>
+                                        <label htmlFor='checkbox'>Hypertension</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleGlaucomaChange} />
-                                    <label htmlFor='checkbox'>Glaucoma</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_glaucoma === 100 ? true : false} onChange={(e) => setGlaucoma(helps_glaucoma === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Glaucoma</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handlePmsChange} />
-                                    <label htmlFor='checkbox'>PMS</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_pms === 100 ? true : false} onChange={(e) => setPms(helps_pms === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>PMS</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleSeizuresChange} />
-                                    <label htmlFor='checkbox'>Seizures</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_seizures === 100 ? true : false} onChange={(e) => setSeizures(helps_seizures === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Seizures</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleSpasticityChange} />
-                                    <label htmlFor='checkbox'>Spasticity</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_spasticity === 100 ? true : false} onChange={(e) => setSpasticity(helps_spasticity === 100 ? 0 : 100)}/>
+                                        <label htmlFor='checkbox'>Spasticity</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleSpinalcordinjuryChange} />
-                                    <label htmlFor='checkbox'>Spinal Cord Injury</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_spinalcordinjury === 100 ? true : false} onChange={(e) => setSpinalcordinjury(helps_spinalcordinjury === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Spinal Cord Injury</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleFibromyalgiaChange} />
-                                    <label htmlFor='checkbox'>Fibromyalgia</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_fibromyalgia === 100 ? true : false} onChange={(e) => setFibromyalgia(helps_fibromyalgia === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Fibromyalgia</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleCrohnSDiseaseChange} />
-                                    <label htmlFor='checkbox'>Crohns Disease</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_crohn_s_disease === 100 ? true : false} onChange={(e) => setCrohnSDisease(helps_crohn_s_disease === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Crohns Disease</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handlePhantomlimbpainChange} />
-                                    <label htmlFor='checkbox'>Phantom Limb Pain</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_phantomlimbpain === 100 ? true : false} onChange={(e) => setPhantomlimbpain(helps_phantomlimbpain === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Phantom Limb Pain</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleEpilepsyChange} />
-                                    <label htmlFor='checkbox'>Epilepsy</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_epilepsy === 100 ? true : false} onChange={(e) => setEpilepsy(helps_epilepsy === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Epilepsy</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleMultiplesclerosisChange} />
-                                    <label htmlFor='checkbox'>Multiple Sclerosis</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_multiplesclerosis === 100 ? true : false} onChange={(e) => setMultiplesclerosis(helps_multiplesclerosis === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Multiple Sclerosis</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleParkinsonSChange} />
-                                    <label htmlFor='checkbox'>Parkinsons</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_parkinson_s === 100 ? true : false} onChange={(e) => setParkinsonS(helps_parkinson_s === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Parkinsons</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleTouretteSsyndromeChange} />
-                                    <label htmlFor='checkbox'>Tourettes Syndrome</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_tourette_ssyndrome === 100 ? true : false} onChange={(e) => setTouretteSsyndrome(helps_tourette_ssyndrome === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Tourettes Syndrome</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleAlzheimerSChange} />
-                                    <label htmlFor='checkbox'>Alzheimers</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_alzheimer_s === 100 ? true : false} onChange={(e) => setAlzheimerS(helps_alzheimer_s === 100 ? 0 : 100)}/>
+                                        <label htmlFor='checkbox'>Alzheimers</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleHivAidsChange} />
-                                    <label htmlFor='checkbox'>HIV/AIDS</label>
-                                </div>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_hiv_aids === 100 ? true : false} onChange={(e) => setHivAids(helps_hiv_aids === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>HIV/AIDS</label>
+                                    </div>
 
-                                <div className='flex gap-1 items-center'>
-                                    <input type='checkbox' onChange={handleTinnitusChange} />
-                                    <label htmlFor='checkbox'>Tinnitus</label>
+                                    <div className='flex gap-1 items-center'>
+                                        <input type='checkbox' checked={helps_tinnitus === 100 ? true : false} onChange={(e) => setTinnitus(helps_tinnitus === 100 ? 0 : 100)} />
+                                        <label htmlFor='checkbox'>Tinnitus</label>
+                                    </div>
                                 </div>
-                            </div>
 
                                 <div>
                                     <Button className="bg-green-400 text-black" onClick={handlePrediction}>Predecir</Button>
                                 </div>
-                        </div>
-
-                    </ResizablePanel>
-                    <ResizableHandle withHandle />
-                    <ResizablePanel>
-                        <div className='ml-14 mr-14'>
-                        <Carousel>
-                            <CarouselContent>
-                            {cepasCercanas && cepasCercanas.map((cepa, index)=>(
-                                <CarouselItem key={index}>
-                                <ResizablePanel className=''>
-                                    <div>
-                                        <div>
-                                        <ResizablePanelGroup
-                                            direction="vertical"
-                                            className="min-h-[220px] max-w rounded-lg border mb-2">
-                                                <ResizablePanel defaultSize={20}>
-                                                    <div className="flex h-full items-center justify-center  p-6">
-                                                    <span className="font-semibold text-green-400">{cepa?.Nombre}</span>
-                                                    </div>
-                                                </ResizablePanel>
-                                                <ResizableHandle />
-                                                <ResizablePanel defaultSize={100}>
-                                                    <div className='grid  place-items-center'>
-                                                        <div className='p-2'>
-                                                            <span> La cepa OG Kush se caracteriza lorem por un perfil de terpenos complejo que incluye mirceno, limoneno, linalool y cariofileno. Este cóctel aromático proporciona notas terrosas, cítricas y ligeramente florales. Se cree que contribuye a un efecto relajante con toques de euforia y claridad mental.</span>
-                                                        </div>
-                                                    </div>
-                                                </ResizablePanel>
-                                                
-                                            </ResizablePanelGroup>
-                                            <div className=''>
-                                            <ResizablePanelGroup
-                                            direction="vertical"
-                                            className="min-h-[280px] max-w rounded-lg border mb-2">
-                                                <ResizablePanel defaultSize={10}>
-                                                    <div className="flex h-full items-center  p-6">
-                                                    <span className="font-semibold">Terpenos Presentes</span>
-                                                    </div>
-                                                </ResizablePanel>
-                                                <ResizableHandle />
-                                                <div className="grid grid-cols-2 gap-2 p-4">
-                                                        <div>
-                                                        <div className='flex justify-between'>
-                                                        <span>Relaxed</span>
-                                                        <span>{cepa?.feeling_relaxed}</span>
-                                                        </div>
-                                                        <Progress value={cepa?.feeling_relaxed} />
-                                                        </div>
-                                                        <div>
-                                                        <div className='flex justify-between'>
-                                                        <span>Happy</span>
-                                                        <span>{cepa?.feeling_happy}</span>
-                                                        </div>
-                                                        <Progress value={cepa?.feeling_happy} />
-                                                        </div>
-                                                        <div>
-                                                        <div className='flex justify-between'>
-                                                        <span>Euphoric</span>
-                                                        <span>{cepa?.feeling_euphoric}</span>
-                                                        </div>
-                                                        <Progress value={cepa?.feeling_euphoric} />
-                                                        </div>
-                                                        <div>
-                                                        <div className='flex justify-between'>
-                                                        <span>Uplifted</span>
-                                                        <span>{cepa?.feeling_uplifted}</span>
-                                                        </div>
-                                                        <Progress value={cepa?.feeling_uplifted} />
-                                                        </div>
-
-                                                        <div>
-                                                        <div className='flex justify-between'>
-                                                        <span>Sleepy</span>
-                                                        <span>{cepa?.feeling_sleepy}</span>
-                                                        </div>
-                                                        <Progress value={cepa?.feeling_sleepy} />
-                                                        </div>
-                                                        <div>
-                                                        <div className='flex justify-between'>
-                                                        <span>Hungry</span>
-                                                        <span>{cepa?.feeling_hungry}</span>
-                                                        </div>
-                                                        <Progress value={cepa?.feeling_hungry} />
-                                                        </div>
-                                                        <div>
-                                                        <div className='flex justify-between'>
-                                                        <span>Talkative</span>
-                                                        <span>{cepa?.feeling_talkative}</span>
-                                                        </div>
-                                                        <Progress value={cepa?.feeling_talkative} />
-                                                        </div>
-                                                        <div>
-                                                        <div className='flex justify-between'>
-                                                        <span>Creative</span>
-                                                        <span>{cepa?.feeling_creative}</span>
-                                                        </div>
-                                                        <Progress value={cepa?.feeling_creative} />
-                                                        </div>
-                                                        <div>
-                                                        <div className='flex justify-between'>
-                                                        <span>Energetic</span>
-                                                        <span>{cepa?.feeling_energetic}</span>
-                                                        </div>
-                                                        <Progress value={cepa?.feeling_energetic} />
-                                                        </div>
-                                                        <div>
-                                                        <div className='flex justify-between'>
-                                                        <span>Focused</span>
-                                                        <span>{cepa?.feeling_focused}</span>
-                                                        </div>
-                                                        <Progress value={cepa?.feeling_focused} />
-                                                        </div>
-                                                        <div>
-                                                        <div className='flex justify-between'>
-                                                        <span>Giggly</span>
-                                                        <span>{cepa?.feeling_giggly}</span>
-                                                        </div>
-                                                        <Progress value={cepa?.feeling_giggly} />
-                                                        </div>
-                                                        <div>
-                                                        <div className='flex justify-between'>
-                                                        <span>Aroused</span>
-                                                        <span>{cepa?.feeling_aroused}</span>
-                                                        </div>
-                                                        <Progress value={cepa?.feeling_aroused} />
-                                                        </div>
-                                                    </div>
-                                            </ResizablePanelGroup>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ResizablePanel>
-                                </CarouselItem>
-                                                                  ))}
-
-                            </CarouselContent>
-                            <CarouselPrevious />
-                            <CarouselNext />
-                        </Carousel>
-                        </div>
-                    </ResizablePanel>
-                </ResizablePanelGroup>
-            </div>
-
-            
-            <div className="grid w-full gap-1.5 pt-6 pb-2">
-            <Label htmlFor="message" className='text-2xl'>Receta</Label>
-                            <Select>
-                            <SelectTrigger>
-                                <SelectValue placeholder="Selecciona una Cepa" />
-                            </SelectTrigger>
-                            <SelectContent>
-                            {cepasCercanas && cepasCercanas.map((cepa, index)=>(
-                                <SelectItem value="light"  key={index}>{cepa?.Nombre}</SelectItem>
-                                ))}
-
-                            </SelectContent>
-                            </Select>
-            <Textarea placeholder="Si deseas prescribir una receta podras escribirla aqui..." id="message" />
-                                {
-                                    isClient &&             <div>
-                                    <PDFDownloadLink document={<PDF />} fileName="myfirstpdf.pdf">
-                                {({ loading, url, error, blob }) =>
-                                loading ? (
-                                    toast("Cargando Receta")
-                                ) : (
-                                    <Button className="bg-green-400 text-black">Generar</Button>
-                                )
-                                }
-                            </PDFDownloadLink>
                             </div>
-                                }
+
+                        </ResizablePanel>
+                        <ResizableHandle withHandle />
+                        <ResizablePanel>
+                            <div className='ml-14 mr-14'>
+                                <Carousel>
+                                    <CarouselContent>
+                                        {cepasCercanas && cepasCercanas.map((cepa, index) => (
+                                            <CarouselItem key={index}>
+                                                <ResizablePanel className=''>
+                                                    <div>
+                                                        <div>
+                                                            <ResizablePanelGroup
+                                                                direction="vertical"
+                                                                className="min-h-[220px] max-w rounded-lg border mb-2">
+                                                                <ResizablePanel defaultSize={15}>
+                                                                    <div className="flex h-full items-center justify-center  p-6">
+                                                                        <span className="font-semibold text-green-400">{cepa[0]}</span>
+                                                                    </div>
+                                                                </ResizablePanel>
+                                                                <ResizableHandle />
+                                                                <ResizablePanel defaultSize={35}>
+                                                                    <div className='grid place-items-center'>
+                                                                        <div className='flex flex-col items-center pt-8'>
+                                                                            <span className='text-xl pb-2'>{estadoPrediccion}</span>
+                                                                            <div className='text-xl pb-2'>Porcentaje precisión:{cepa[2]}%</div>
+                                                                            <div className='text-xl pb-2'>Perfil:{cepa[3]}</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </ResizablePanel>
+
+                                                            </ResizablePanelGroup>
+                                                            <div className=''>
+                                                                <ResizablePanelGroup
+                                                                    direction="vertical"
+                                                                    className="min-h-[280px] max-w rounded-lg border mb-2">
+                                                                    <ResizableHandle />
+                                                                    <div className="grid grid-cols-2 gap-2 p-4">
+                                                                        {Object.entries(cepa[1] as Record<string, number>).map(([fh , valor]) => (
+                                                                            <div key={fh}>
+                                                                                <div className='flex justify-between'>
+                                                                                    <span>{fh}</span>
+                                                                                    <span>{valor}</span>
+                                                                                </div>
+                                                                                <Progress value={valor} />
+                                                                            </div>
+                                                                        ))}
+                                                                    </div>
+                                                                </ResizablePanelGroup>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </ResizablePanel>
+                                            </CarouselItem>
+                                        ))}
+
+                                    </CarouselContent>
+                                    <CarouselPrevious />
+                                    <CarouselNext />
+                                </Carousel>
+                            </div>
+                        </ResizablePanel>
+                    </ResizablePanelGroup>
+                </div>
+
+
+                <div className="grid w-full gap-1.5 pt-6 pb-2">
+                    <Label htmlFor="message" className='text-2xl'>Receta</Label>
+                    <Select onValueChange={handleCepaChange}>
+                        <SelectTrigger>
+                            <SelectValue placeholder="Selecciona una Cepa" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {cepasCercanas && cepasCercanas.map((cepa, index) => (
+                                <SelectItem value={cepa[0]} key={index}>{cepa[0]}</SelectItem>
+                            ))}
+
+                        </SelectContent>
+                    </Select>
+                    <div className='flex'>
+                        <div className='w-full'>
+                        <Textarea placeholder="Nombre:" id="nombre"
+                        value={nombre}
+                        onChange={handleNombreChange}
+                        />   
+                        </div>
+                        <div className='w-full'>
+                        <Textarea placeholder="Edad:" id="edad"
+                        value={edad}
+                        onChange={handleEdadChange}
+                        />   
+                        </div>
+                        <div className='w-full'>
+                        <Textarea placeholder="Telefono:" id="telefono"
+                        value={telefono}
+                        onChange={handleTelefonoChange}
+                        />   
+                        </div>
+                    </div>
+                    <div className='flex'>
+                        <div className='w-full'>
+                        <Textarea placeholder="Guia de compra:" id="guia"
+                        value={guia}
+                        onChange={handleGuiaChange}
+                        />   
+                        </div>
+                        <div className='w-full'>
+                        <Textarea placeholder="Padecimientos:" id="padecimiento"
+                        value={padecimiento}
+                        onChange={handlePadecimientoChange}
+                        />   
+                        </div>
+                    </div>
+                    <Textarea placeholder="Dosis:" id="dosis"
+                        value={dosis}
+                        onChange={handleDosisChange}
+                    />
+                    <Textarea placeholder="Describe las indicaciones del consumo..." id="message"
+                        value={descripcion}
+                        onChange={handleDescripcionChange}
+                    />
+                    {
+                        isClient &&
+                        <div>
+                            <PDFDownloadLink document={<PDF cepa={selectedCepa} descripcion={descripcion} nombre={nombre} edad={edad} telefono={telefono} guiaCompra={guia} padecimientos={padecimiento} dosis={dosis}/>} fileName={`Receta:${nombre}.pdf`}>
+
+                                {({ loading }) => (
+                                    <Button className="bg-green-400 text-black">Generar</Button>
+                                )}
+                            </PDFDownloadLink>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }
