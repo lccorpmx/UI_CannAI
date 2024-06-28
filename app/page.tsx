@@ -803,7 +803,7 @@ export default function Home() {
                                                                         {Object.entries(cepa[1] as Record<string, number>).map(([fh , valor]) => (
                                                                             <div key={fh}>
                                                                                 <div className='flex justify-between'>
-                                                                                    <span className="text-md">{fh}</span>
+                                                                                    <span className="text-md truncate">{fh}</span>
                                                                                 </div>
                                                                                 <div className="flex flex-row items-center gap-2">
                                                                                 <Progress value={valor} />
