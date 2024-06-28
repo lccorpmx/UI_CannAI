@@ -538,7 +538,7 @@ export default function Home() {
                                                             <div className='flex flex-col'>
                                                                 <span className='text-4xl text-green-400 font-bold pt-4 pb-2'>Padecimientos:</span>
                                                             </div>
-                                                            <div className='grid grid-cols-3 pl-4 pt-2 pb-2 p-2 gap-2'>
+                                                            <div className='grid grid-cols-4 pl-4 pt-2 pb-2 p-2 gap-3'>
                                     <div className='flex gap-1 items-center text-2xl'>
                                         <input type='checkbox' className="w-4 h-4" checked={helps_stress === 100 ? true : false} onChange={(e) => setStress(helps_stress === 100 ? 0 : 100)} />
                                         <label htmlFor='checkbox'>Stress</label>
@@ -599,9 +599,9 @@ export default function Home() {
                                         <input type='checkbox' className="w-4 h-4" checked={helps_cramps === 100 ? true : false} onChange={(e) => setCramps(helps_cramps === 100 ? 0 : 100)}/>
                                         <label htmlFor='checkbox'>Cramps</label>
                                     </div>
-                                    <div className='flex gap-1 items-center text-2xl'>
+                                    <div className='flex gap-1 items-center text-2xl truncate'>
                                         <input type='checkbox' className="w-4 h-4" checked={helps_gastrointestinaldisorder === 100 ? true : false} onChange={(e) => setGastrointestinaldisorder(helps_gastrointestinaldisorder === 100 ? 0 : 100)} />
-                                        <label htmlFor='checkbox'>Gastrointestinaldisorder</label>
+                                        <label htmlFor='checkbox' >Gastrointestinaldisorder</label>
                                     </div>
                                     <div className='flex gap-1 items-center text-2xl'>
                                         <input type='checkbox' className="w-4 h-4" checked={helps_inflammation === 100 ? true : false} onChange={(e) => setInflammation(helps_inflammation === 100 ? 0 : 100)} />
@@ -803,11 +803,12 @@ export default function Home() {
                                                                         {Object.entries(cepa[1] as Record<string, number>).map(([fh , valor]) => (
                                                                             <div key={fh}>
                                                                                 <div className='flex justify-between'>
-                                                                                    <span>{fh}</span>
-                                                                                    <span>{valor}</span>
+                                                                                    <span className="text-md">{fh}</span>
                                                                                 </div>
+                                                                                <div className="flex flex-row items-center gap-2">
                                                                                 <Progress value={valor} />
-                                                                            </div>
+                                                                                <span>{valor}</span>
+                                                                                </div>                                                                            </div>
                                                                         ))}
                                                                     </div>
                                                                 </div>
