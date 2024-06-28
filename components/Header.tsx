@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <div>
     <header className="bg-black p-4 text-white flex items-center justify-center">
-      <h1 className='text-4xl text-green-400 font-bold'>CannAsisst IA</h1>
+      <h1 className=' lg:text-4xl text-xl text-green-400 font-bold'>CannAsisst IA</h1>
 </header>
 </div>
   )
