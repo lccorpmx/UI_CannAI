@@ -818,7 +818,7 @@ export default function Home() {
                                                 </CarouselContent>
                                             <CarouselPrevious />
                                             <div>
-                                                <Button className="bg-green-400 text-black pt-8 pb-8 rounded-full " onClick={handleCaptureClick}><span className="text-4xl"><MdAddPhotoAlternate />
+                                                <Button className="bg-green-400 text-black pt-8 pb-8 rounded-full" onClick={handleCaptureClick}><span className="text-4xl "><MdAddPhotoAlternate />
                                                 </span></Button>
                                             </div>
                                              <CarouselNext />
