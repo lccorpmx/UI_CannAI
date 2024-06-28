@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     },
 });
 
-function PDF({ cepa, descripcion, nombre, edad, telefono, guiaCompra, padecimientos, dosis }) {
+function PDF({ cepas }) {
     return (
         <Document>
             <Page style={styles.page}>
@@ -63,7 +63,7 @@ function PDF({ cepa, descripcion, nombre, edad, telefono, guiaCompra, padecimien
 
                 <View style={styles.line} />
 
-                <Text style={styles.sectionTitle}>Datos del Paciente:</Text>
+                <Text style={styles.sectionTitle}>Cepa</Text>
                 <View style={styles.grid}>
                     <View style={styles.gridItem}>
                         <Text style={styles.section}>Nombre: {nombre}</Text>

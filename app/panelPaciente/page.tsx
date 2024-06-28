@@ -828,7 +828,7 @@ export default function PanelPaciente({ params }: { params: { id: string } }) {
                     {
                         isClient &&
                         <div>
-                            <PDFDownloadLink document={<PDF cepa={selectedCepa} descripcion={descripcion} nombre={nombre} edad={edad} telefono={telefono} guiaCompra={guia} padecimientos={padecimiento} dosis={dosis}/>} fileName={`Receta:${nombre}.pdf`}>
+                            <PDFDownloadLink document={<PDF cepas={cepasCercanas}/>} fileName={`Receta:${nombre}.pdf`}>
 
                                 {({ loading }) => (
                                     <Button className="bg-green-400 text-black">Generar</Button>
