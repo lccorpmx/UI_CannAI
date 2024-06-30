@@ -543,7 +543,7 @@ export default function Home() {
                                                             </div>
                                                             <div className='grid grid-cols-2 lg:grid-cols-4 lg:pl-4 pt-2 pb-2 lg:gap-3'>
                                     <div className='flex gap-1 items-center text-md lg:text-2xl'>
-                                        <input type='checkbox' className="w-2 h-2 lg:h-4 lg:w-4" checked={helps_stress === 100 ? true : false} onChange={(e) => setStress(helps_stress === 100 ? 0 : 100)} />
+                                        <input type='checkbox' className="lg:h-4 lg:w-4" checked={helps_stress === 100 ? true : false} onChange={(e) => setStress(helps_stress === 100 ? 0 : 100)} />
                                         <label htmlFor='checkbox'>Stress</label>
                                     </div>
                                     <div className='flex gap-1 items-center text-md text-base lg:text-2xl'>
