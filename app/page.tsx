@@ -923,7 +923,7 @@ export default function Home() {
 
                     <div className="overflow-auto">
                     <div className='grid grid-cols-2 lg:grid-cols-4 lg:pl-4 pt-2 pb-2 lg:gap-3'>
-                    <div className='flex gap-1 items-center text-md lg:text-2xl'>
+                    <div className='flex gap-1 items-center text-md text-base lg:text-2xl'>
                     <input type='checkbox' className="lg:h-4 lg:w-4" checked={helps_stress === 100 ? true : false} onChange={(e) => setStress(helps_stress === 100 ? 0 : 100)} />
                     <label htmlFor='checkbox'>Stress</label>
                     </div>
@@ -984,7 +984,7 @@ export default function Home() {
                     <label htmlFor='checkbox'>Cramps</label>
                     </div>
                     <div className='flex gap-1 items-center text-md text-base lg:text-2xl truncate'>
-                    <input type='checkbox' className="w-2 h-2 lg:h-4 lg:w-4" checked={helps_gastrointestinaldisorder === 100 ? true : false} onChange={(e) => setGastrointestinaldisorder(helps_gastrointestinaldisorder === 100 ? 0 : 100)} />
+                    <input type='checkbox' className="lg:h-4 lg:w-4" checked={helps_gastrointestinaldisorder === 100 ? true : false} onChange={(e) => setGastrointestinaldisorder(helps_gastrointestinaldisorder === 100 ? 0 : 100)} />
                     <label htmlFor='checkbox' >Gastrointestinal</label>
                     </div>
                     <div className='flex gap-1 items-center text-md text-base lg:text-2xl'>
@@ -1216,8 +1216,8 @@ export default function Home() {
 
                     {status === 'loading' && (
                         <div className="animate-blink flex items-center flex-col">
-                            <LiaCannabisSolid className="text-9xl text-green-400" />
-                            <span className="text-6xl">Cargando...</span>
+                            <LiaCannabisSolid className="lg:text-9xl text-6xl text-green-400" />
+                            <span className="lg:text-6xl text-3xl">Cargando...</span>
                         </div>
                     )}
 
@@ -1269,7 +1269,7 @@ export default function Home() {
                                                                         }
                                                                     </div>
                                                                     <div>
-                                                                        <span className="flex text-center text-md">Algunas cepas pueden tener valores cercanos a 0 debido a la limitación de la base de conocimiento actual, que depende de los reportes y hallazgos disponibles sobre cada cepa. En caso de encontrar este escenario, se recomienda investigar más a fondo.</span>
+                                                                        <p className="text-sm text-center p-2 lg:text-xl">Algunas cepas pueden tener valores cercanos a 0 debido a la limitación de la base de conocimiento actual, que depende de los reportes y hallazgos disponibles sobre cada cepa. En caso de encontrar este escenario, se recomienda investigar más a fondo.</p>
                                                                     </div>
                                                                     <div className="grid lg:grid-cols-4 grid-cols-2  gap-3 p-4 ">
                                                                         {Object.entries(cepa[1] as Record<string, number>).map(([fh , valor]) => (
