@@ -397,18 +397,18 @@ export default function Home() {
                 }
             }else{
                 if(flagHelps>3){
-                    toast("Elige maximo 3 Helps")
+                    toast("Elige maximo 3 Padecimientos")
                 }
                 if(flagHelps<1){
-                    toast("Elige almenos 1 Help")
+                    toast("Elige almenos 1 Padecimientos")
                 }
             }
         }else{
             if(flagFeelings>6){
-                toast("Elige maximo 6 Feelings")
+                toast("Elige maximo 6 Efectos")
             }
             if(flagFeelings<3){
-                toast("Elige almenos 3 Feelings")
+                toast("Elige almenos 3 Efectos")
             }
         }
 
